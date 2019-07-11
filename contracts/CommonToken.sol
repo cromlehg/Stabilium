@@ -1,8 +1,8 @@
 pragma solidity ^0.5.0;
 
-import "./token/ERC20/ERC20.sol";
-import "./token/ERC20/ERC20Detailed.sol";
-import "./ownership/Ownable.sol";
+import "openzeppelin-solidity/contracts/token/ERC20/ERC20.sol";
+import "openzeppelin-solidity/contracts/token/ERC20/ERC20Detailed.sol";
+import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
 
 /**
  * @title CommonToken
@@ -25,21 +25,21 @@ contract CommonToken is ERC20, ERC20Detailed, Ownable {
     }
 
     modifier notLocked(address actor) {
-	require(lockPeriodFinished || actor == owner() || lockFilter[actor], "You are not allowed to move tokens.");
-	_;
+        require(lockPeriodFinished || actor == owner() || lockFilter[actor], "You are not allowed to move tokens.");
+        _;
     }
 
     function finishLockPeriod() public {
-      require(!lockPeriodFinished, "Lock period already finished.");
-      lockPeriodFinished = true;
+        require(!lockPeriodFinished, "Lock period already finished.");
+        lockPeriodFinished = true;
     }
 
     function transferFrom(address sender, address recipient, uint256 amount) notLocked(sender) public returns (bool) {
-	return super.transferFrom(sender, recipient, amount);
+        return super.transferFrom(sender, recipient, amount);
     }
 
     function transfer(address recipient, uint256 amount) notLocked(msg.sender) public returns (bool) {
-	return super.transferFrom(msg.sender, recipient, amount);        
+        return super.transferFrom(msg.sender, recipient, amount);
     }
 
 }

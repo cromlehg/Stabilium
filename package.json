@@ -1,0 +1,27 @@
+{
+  "name": "stabilium",
+  "version": "1.0.0",
+  "description": "Stabilium Token smart contract",
+  "scripts": {
+    "flatten": "./node_modules/.bin/truffle-flattener ./contracts/TargetToken.sol > ./deploy/TargetToken.sol",
+    "test": "scripts/test.sh"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "ganache-cli": "^6.4.1",
+    "openzeppelin-solidity": "^2.3.0",
+    "openzeppelin-test-helpers": "^0.4",
+    "truffle": "^5.0.18",
+    "truffle-flattener": "^1.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cromlehg/Stabilium.git"
+  },
+  "author": "Alexander Strakh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cromlehg/Stabilium/issues"
+  },
+  "homepage": "https://github.com/cromlehg/Stabilium#readme"
+}

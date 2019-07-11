@@ -7,6 +7,6 @@ import "./CommonToken.sol";
  */
 contract TargetToken is CommonToken {
 
-    constructor (address operator, string memory name, string memory ticker, uint256 count) public CommonToken(0xEA15Adb66DC92a4BbCcC8Bf32fd25E2e86a2A770, "Stabilium", "STB", 5000000000) {
+    constructor () public CommonToken(0xEA15Adb66DC92a4BbCcC8Bf32fd25E2e86a2A770, "Stabilium", "STB", 5000000000) {
     }
 }

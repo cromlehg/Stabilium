@@ -30,7 +30,8 @@ contract CommonToken is ERC20, ERC20Detailed, Ownable {
     }
 
     function finishLockPeriod() public {
-        require(!lockPeriodFinished, "Lock period already finished.");
+        require(!lockPeriodFinished, "Lock period has already finished");
+        require(msg.sender == owner(), "You are not allowed to perform this action");
         lockPeriodFinished = true;
     }
 

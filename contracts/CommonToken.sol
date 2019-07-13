@@ -40,7 +40,7 @@ contract CommonToken is ERC20, ERC20Detailed, Ownable {
     }
 
     function transfer(address recipient, uint256 amount) notLocked(msg.sender) public returns (bool) {
-        return super.transferFrom(msg.sender, recipient, amount);
+        return super.transfer(recipient, amount);
     }
 
 }

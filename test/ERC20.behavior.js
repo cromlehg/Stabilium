@@ -165,6 +165,7 @@ function shouldBehaveLikeERC20Transfer (errorPrefix, from, to, balance, transfer
     describe('when the sender transfers all balance', function () {
       const amount = balance;
       it('transfers the requested amount', async function () {
+        await transfer.call(this, from, to, amount);
         expect(await this.token.balanceOf(from)).to.be.bignumber.equal('0');
         expect(await this.token.balanceOf(to)).to.be.bignumber.equal(amount);
       });

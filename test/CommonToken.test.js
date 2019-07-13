@@ -19,7 +19,7 @@ contract('ERC20', function ([_, initialHolder, recipient, anotherAccount]) {
 
   describe('ERC20 behaviour', function () {
     beforeEach(async function () {
-      await this.token.finishLockPeriod();
+      await this.token.finishLockPeriod({from: initialHolder});
     });
     shouldBehaveLikeERC20('ERC20', initialSupply, initialHolder, recipient, anotherAccount);
   });
